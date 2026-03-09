@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Shield, Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import { siteConfig } from "@/data/site";
 
 export default function Footer() {
@@ -10,14 +11,15 @@ export default function Footer() {
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center">
-                <Shield className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <span className="text-lg font-bold text-text-primary">
-                  GESİDER
-                </span>
+            <Link href="/" className="inline-flex">
+              <div className="rounded-xl bg-white/95 px-3 py-2 ring-1 ring-white/40 shadow-sm">
+                <Image
+                  src="/gesider-logo.png"
+                  alt="GESIDER"
+                  width={338}
+                  height={82}
+                  className="h-9 w-auto"
+                />
               </div>
             </Link>
             <p className="text-text-secondary text-sm leading-relaxed">
@@ -31,9 +33,8 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               {[
-                { label: "Hakkımızda", href: "/hakkimizda" },
-                { label: "Yönetim Kurulu", href: "/hakkimizda#yonetim" },
-                { label: "Komisyonlar", href: "/komisyonlar" },
+                { label: "Hakk\u0131m\u0131zda", href: "/hakkimizda" },
+                { label: "Y\u00f6netim Kurulu", href: "/hakkimizda#yonetim" },
                 { label: "Haberler", href: "/haberler" },
               ].map((link) => (
                 <li key={link.href}>
@@ -50,14 +51,13 @@ export default function Footer() {
 
           <div>
             <h3 className="text-sm font-semibold text-text-primary uppercase tracking-wider mb-4">
-              Hızlı Erişim
+              {"H\u0131zl\u0131 Eri\u015fim"}
             </h3>
             <ul className="space-y-3">
               {[
-                { label: "Üyelik", href: "/uyelik" },
-                { label: "Kaynaklar", href: "/kaynaklar" },
-                { label: "Kariyer", href: "/kariyer" },
-                { label: "İletişim", href: "/iletisim" },
+                { label: "\u00dcyelik", href: "/uyelik" },
+                { label: "Hakk\u0131m\u0131zda", href: "/hakkimizda" },
+                { label: "\u0130leti\u015fim", href: "/iletisim" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -73,14 +73,12 @@ export default function Footer() {
 
           <div>
             <h3 className="text-sm font-semibold text-text-primary uppercase tracking-wider mb-4">
-              İletişim
+              {"\u0130leti\u015fim"}
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                <span className="text-sm text-text-muted">
-                  {siteConfig.address}
-                </span>
+                <span className="text-sm text-text-muted">{siteConfig.address}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary shrink-0" />
@@ -106,10 +104,10 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-text-muted">
-            &copy; 1996-{currentYear} GESİDER - Tüm hakları saklıdır.
+            {`\u00a9 1996-${currentYear} GESIDER - T\u00fcm haklar\u0131 sakl\u0131d\u0131r.`}
           </p>
           <p className="text-xs text-text-muted">
-            Güvenlik Endüstrisi Sanayicileri ve İşadamları Derneği
+            {"G\u00fcvenlik End\u00fcstrisi Sanayicileri ve \u0130\u015fadamlar\u0131 Derne\u011fi"}
           </p>
         </div>
       </div>

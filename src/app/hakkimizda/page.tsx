@@ -203,31 +203,10 @@ function CharterTab() {
           çerçevesinde yürütmektedir.
         </p>
         <p className="text-text-secondary leading-relaxed">
-          Tüzüğün tam metnine ulaşmak veya faaliyet raporlarını incelemek için
+          Tüzüğün tam metnine ulaşmak için
           lütfen dernek merkezimiz ile iletişime geçiniz.
         </p>
-      </Card>
-
-      <Card className="p-8">
-        <h3 className="text-xl font-bold text-text-primary mb-4">Faaliyet Raporları</h3>
-        <div className="space-y-3">
-          {[
-            { title: "Genel Kurul Duyurusu 2015", year: "2015" },
-            { title: "14 Nisan 2010 Yemekli Toplantı Raporu", year: "2010" },
-            { title: "16-17 Eylül 2010 Özel Güvenlik Günleri", year: "2010" },
-          ].map((report) => (
-            <div
-              key={report.title}
-              className="flex items-center justify-between p-4 rounded-xl bg-surface border border-border"
-            >
-              <span className="text-sm text-text-secondary">{report.title}</span>
-              <span className="text-xs text-text-muted px-3 py-1 rounded-full bg-surface-elevated">
-                {report.year}
-              </span>
-            </div>
-          ))}
-        </div>
-      </Card>
+      </Card>
     </div>
   );
 }
@@ -237,7 +216,7 @@ export default function HakkimizdaPage() {
     { id: "tarihce", label: "Tarihçe & Misyon", content: <HistoryTab /> },
     { id: "baskan", label: "Başkanın Mesajı", content: <PresidentTab /> },
     { id: "yonetim", label: "Yönetim Kurulu", content: <BoardTab /> },
-    { id: "tuzuk", label: "Tüzük & Raporlar", content: <CharterTab /> },
+    { id: "tuzuk", label: "Tüzük", content: <CharterTab /> },
   ];
 
   return (

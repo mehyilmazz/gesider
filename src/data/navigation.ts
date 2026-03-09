@@ -7,19 +7,16 @@ export interface NavItem {
 export const navigation: NavItem[] = [
   { label: "Ana Sayfa", href: "/" },
   {
-    label: "Hakkımızda",
+    label: "Hakk\u0131m\u0131zda",
     href: "/hakkimizda",
     children: [
-      { label: "Tarihçe & Misyon", href: "/hakkimizda#tarihce" },
-      { label: "Başkanın Mesajı", href: "/hakkimizda#baskan" },
-      { label: "Yönetim Kurulu", href: "/hakkimizda#yonetim" },
-      { label: "Tüzük & Raporlar", href: "/hakkimizda#tuzuk" },
+      { label: "Tarih\u00e7e & Misyon", href: "/hakkimizda#tarihce" },
+      { label: "Ba\u015fkan\u0131n Mesaj\u0131", href: "/hakkimizda#baskan" },
+      { label: "Y\u00f6netim Kurulu", href: "/hakkimizda#yonetim" },
+      { label: "T\u00fcz\u00fck", href: "/hakkimizda#tuzuk" },
     ],
   },
-  { label: "Üyelik", href: "/uyelik" },
-  { label: "Komisyonlar", href: "/komisyonlar" },
+  { label: "\u00dcyelik", href: "/uyelik" },
   { label: "Haberler", href: "/haberler" },
-  { label: "Kaynaklar", href: "/kaynaklar" },
-  { label: "Kariyer", href: "/kariyer" },
-  { label: "İletişim", href: "/iletisim" },
+  { label: "\u0130leti\u015fim", href: "/iletisim" },
 ];

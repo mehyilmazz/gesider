@@ -2,37 +2,35 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Search, Building2, Send, Users, UserPlus } from "lucide-react";
+import { Search, Building2, Mail, Send } from "lucide-react";
 import PageHeader from "@/components/shared/PageHeader";
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
-import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { members } from "@/data/members";
 
 export default function UyelikPage() {
   const [search, setSearch] = useState("");
-  const [formType, setFormType] = useState<"tuzel" | "bireysel">("tuzel");
 
   const filteredMembers = members.filter(
-    (m) =>
-      m.name.toLowerCase().includes(search.toLowerCase()) ||
-      m.sector.toLowerCase().includes(search.toLowerCase())
+    (member) =>
+      member.name.toLowerCase().includes(search.toLowerCase()) ||
+      member.sector.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
     <>
       <PageHeader
-        title="Üyelik"
-        description="GESİDER ailesine katılın, sektörün gücüne ortak olun."
+        title={"\u00dcyelik"}
+        description={"GESIDER ailesine kat\u0131l\u0131n, sekt\u00f6r\u00fcn g\u00fcc\u00fcne ortak olun."}
       />
 
       <section className="section-padding">
         <div className="container-custom">
           <SectionHeading
-            badge="Üyelerimiz"
-            title="GESİDER Üye Firmaları"
-            description="Güvenlik sektörünün önde gelen firmalarını bünyemizde barındırıyoruz."
+            badge={"\u00dcyelerimiz"}
+            title={"GESIDER \u00dcye Firmalar\u0131"}
+            description={"G\u00fcvenlik sekt\u00f6r\u00fcn\u00fcn \u00f6nde gelen firmalar\u0131n\u0131 b\u00fcnyemizde bar\u0131nd\u0131r\u0131yoruz."}
           />
 
           <div className="max-w-md mx-auto mb-8">
@@ -40,9 +38,9 @@ export default function UyelikPage() {
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted" />
               <input
                 type="text"
-                placeholder="Firma adı veya sektör ile arayın..."
+                placeholder={"Firma ad\u0131 veya sekt\u00f6r ile aray\u0131n..."}
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(event) => setSearch(event.target.value)}
                 className="w-full pl-12 pr-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
               />
             </div>
@@ -63,9 +61,7 @@ export default function UyelikPage() {
                       <Building2 className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-text-primary text-sm">
-                        {member.name}
-                      </h3>
+                      <h3 className="font-semibold text-text-primary text-sm">{member.name}</h3>
                       <Badge variant="outline" className="mt-1.5">
                         {member.sector}
                       </Badge>
@@ -81,150 +77,41 @@ export default function UyelikPage() {
       <section className="section-padding border-t border-border">
         <div className="container-custom">
           <SectionHeading
-            badge="Başvuru"
-            title="Online Üyelik Başvurusu"
-            description="Tüzel veya bireysel üyelik başvurunuzu aşağıdaki formu doldurarak yapabilirsiniz."
+            badge={"Ba\u015fvuru"}
+            title={"\u00dcyelik Ba\u015fvurusu"}
+            description={"Online \u00fcyelik formu kald\u0131r\u0131lm\u0131\u015ft\u0131r. Ba\u015fvurular e-posta \u00fczerinden al\u0131nmaktad\u0131r."}
           />
 
           <div className="max-w-2xl mx-auto">
-            <div className="flex gap-2 mb-8 p-1.5 bg-surface rounded-xl border border-border">
-              <button
-                onClick={() => setFormType("tuzel")}
-                className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-medium transition-all ${
-                  formType === "tuzel"
-                    ? "bg-surface-elevated text-text-primary border border-border-hover"
-                    : "text-text-muted hover:text-text-secondary"
-                }`}
+            <Card className="p-8 space-y-6">
+              <div className="flex items-start gap-3">
+                <Mail className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                <p className="text-text-secondary leading-relaxed">
+                  {"\u00dcyelik ba\u015fvurusu yapmak i\u00e7in firma bilgilerinizi ve ileti\u015fim detaylar\u0131n\u0131z\u0131 "}
+                  <a className="text-primary font-medium ml-1" href="mailto:admin@gesider.org">
+                    admin@gesider.org
+                  </a>
+                  {" adresine g\u00f6nderiniz."}
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-border bg-surface-elevated/40 p-5">
+                <h3 className="text-sm font-semibold text-text-primary mb-3">{"E-posta i\u00e7eri\u011fi \u00f6nerisi"}</h3>
+                <ul className="space-y-2 text-sm text-text-secondary">
+                  <li>{"- Firma ad\u0131 / yetkili ki\u015fi"}</li>
+                  <li>{"- Faaliyet alan\u0131"}</li>
+                  <li>{"- Telefon ve e-posta bilgisi"}</li>
+                  <li>{"- K\u0131sa ba\u015fvuru notu"}</li>
+                </ul>
+              </div>
+
+              <a
+                href="mailto:admin@gesider.org?subject=GESIDER%20Uyelik%20Basvurusu"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-primary px-5 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
               >
-                <Building2 className="w-4 h-4" />
-                Tüzel Üyelik
-              </button>
-              <button
-                onClick={() => setFormType("bireysel")}
-                className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-medium transition-all ${
-                  formType === "bireysel"
-                    ? "bg-surface-elevated text-text-primary border border-border-hover"
-                    : "text-text-muted hover:text-text-secondary"
-                }`}
-              >
-                <Users className="w-4 h-4" />
-                Bireysel Üyelik
-              </button>
-            </div>
-
-            <Card className="p-8">
-              <form className="space-y-6">
-                {formType === "tuzel" ? (
-                  <>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-text-secondary mb-2">
-                          Firma Adı *
-                        </label>
-                        <input
-                          type="text"
-                          className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
-                          placeholder="Firma adı"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-text-secondary mb-2">
-                          Yetkili Adı Soyadı *
-                        </label>
-                        <input
-                          type="text"
-                          className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
-                          placeholder="Ad Soyad"
-                        />
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-text-secondary mb-2">
-                          Faaliyet Alanı *
-                        </label>
-                        <input
-                          type="text"
-                          className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
-                          placeholder="Faaliyet alanı"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-text-secondary mb-2">
-                          Vergi No
-                        </label>
-                        <input
-                          type="text"
-                          className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
-                          placeholder="Vergi numarası"
-                        />
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-text-secondary mb-2">
-                        Ad Soyad *
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
-                        placeholder="Ad Soyad"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-text-secondary mb-2">
-                        Meslek *
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
-                        placeholder="Mesleğiniz"
-                      />
-                    </div>
-                  </div>
-                )}
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-text-secondary mb-2">
-                      E-posta *
-                    </label>
-                    <input
-                      type="email"
-                      className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
-                      placeholder="ornek@firma.com"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-text-secondary mb-2">
-                      Telefon *
-                    </label>
-                    <input
-                      type="tel"
-                      className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
-                      placeholder="0212 000 00 00"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-text-secondary mb-2">
-                    Adres
-                  </label>
-                  <textarea
-                    rows={3}
-                    className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all resize-none"
-                    placeholder="Firma / Ev adresi"
-                  />
-                </div>
-
-                <Button type="submit" size="lg" className="w-full">
-                  <UserPlus className="w-5 h-5 mr-2" />
-                  Başvuruyu Gönder
-                </Button>
-              </form>
+                <Send className="w-4 h-4" />
+                {"admin@gesider.org adresine e-posta g\u00f6nder"}
+              </a>
             </Card>
           </div>
         </div>

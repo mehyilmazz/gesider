@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Shield } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { navigation } from "@/data/navigation";
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,24 +30,21 @@ export default function Navbar() {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
-          ? "glass shadow-lg shadow-black/20"
-          : "bg-transparent"
+        scrolled ? "glass shadow-lg shadow-black/20" : "bg-transparent"
       )}
     >
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center group-hover:glow-sm transition-all duration-300">
-              <Shield className="w-6 h-6 text-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-lg font-bold text-text-primary tracking-tight">
-                GESİDER
-              </span>
-              <span className="text-[10px] text-text-muted leading-tight hidden sm:block">
-                Güvenlik Endüstrisi Derneği
-              </span>
+          <Link href="/" className="group">
+            <div className="rounded-xl bg-white/95 px-2.5 py-1.5 ring-1 ring-white/40 shadow-sm transition-all duration-300 group-hover:ring-primary/40">
+              <Image
+                src="/gesider-logo.png"
+                alt="GESIDER"
+                width={338}
+                height={82}
+                priority
+                className="h-7 w-auto sm:h-8 lg:h-9"
+              />
             </div>
           </Link>
 
@@ -55,9 +53,7 @@ export default function Navbar() {
               <div
                 key={item.href}
                 className="relative"
-                onMouseEnter={() =>
-                  item.children && setActiveDropdown(item.label)
-                }
+                onMouseEnter={() => item.children && setActiveDropdown(item.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <Link
@@ -70,9 +66,7 @@ export default function Navbar() {
                   )}
                 >
                   {item.label}
-                  {item.children && (
-                    <ChevronDown className="w-3.5 h-3.5" />
-                  )}
+                  {item.children && <ChevronDown className="w-3.5 h-3.5" />}
                 </Link>
 
                 <AnimatePresence>
@@ -107,14 +101,14 @@ export default function Navbar() {
               href="/uyelik"
               className="px-5 py-2.5 rounded-lg bg-gradient-primary text-white text-sm font-semibold hover:opacity-90 transition-opacity"
             >
-              Üye Ol
+              {"\u00dcye Ol"}
             </Link>
           </div>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated/50 transition-colors"
-            aria-label="Menü"
+            aria-label={"Men\u00fc"}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -164,7 +158,7 @@ export default function Navbar() {
                   href="/uyelik"
                   className="block text-center px-5 py-3 rounded-lg bg-gradient-primary text-white text-sm font-semibold"
                 >
-                  Üye Ol
+                  {"\u00dcye Ol"}
                 </Link>
               </div>
             </div>
