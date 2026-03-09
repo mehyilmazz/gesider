@@ -96,15 +96,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden lg:flex items-center gap-3">
-            <Link
-              href="/uyelik"
-              className="px-5 py-2.5 rounded-lg bg-gradient-primary text-white text-sm font-semibold hover:opacity-90 transition-opacity"
-            >
-              {"\u00dcye Ol"}
-            </Link>
-          </div>
-
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated/50 transition-colors"
@@ -153,14 +144,6 @@ export default function Navbar() {
                   )}
                 </div>
               ))}
-              <div className="pt-3 border-t border-border">
-                <Link
-                  href="/uyelik"
-                  className="block text-center px-5 py-3 rounded-lg bg-gradient-primary text-white text-sm font-semibold"
-                >
-                  {"\u00dcye Ol"}
-                </Link>
-              </div>
             </div>
           </motion.div>
         )}

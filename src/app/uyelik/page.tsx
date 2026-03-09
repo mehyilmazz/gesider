@@ -21,7 +21,7 @@ export default function UyelikPage() {
   return (
     <>
       <PageHeader
-        title={"\u00dcyelik"}
+        title={"\u00dcyelerimiz"}
         description={"GESIDER ailesine kat\u0131l\u0131n, sekt\u00f6r\u00fcn g\u00fcc\u00fcne ortak olun."}
       />
 

@@ -6,6 +6,8 @@ export interface NavItem {
 
 export const navigation: NavItem[] = [
   { label: "Ana Sayfa", href: "/" },
+  { label: "\u00dcyelerimiz", href: "/uyelik" },
+  { label: "Haberler", href: "/haberler" },
   {
     label: "Hakk\u0131m\u0131zda",
     href: "/hakkimizda",
@@ -16,7 +18,5 @@ export const navigation: NavItem[] = [
       { label: "T\u00fcz\u00fck", href: "/hakkimizda#tuzuk" },
     ],
   },
-  { label: "\u00dcyelik", href: "/uyelik" },
-  { label: "Haberler", href: "/haberler" },
   { label: "\u0130leti\u015fim", href: "/iletisim" },
 ];
