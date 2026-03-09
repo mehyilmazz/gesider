@@ -61,7 +61,7 @@ export default function ServicesGrid() {
           description="Üyelerimiz aracılığıyla güvenlik endüstrisinin her alanında çözümler sunuyoruz."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -71,8 +71,8 @@ export default function ServicesGrid() {
               transition={{ duration: 0.5, delay: index * 0.08 }}
               className="group"
             >
-              <div className="h-full p-6 lg:p-8 rounded-2xl border border-border bg-surface-elevated/40 transition-all duration-300 hover:border-primary/30 hover:bg-surface-elevated/60 hover:shadow-lg hover:shadow-primary/5">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+              <div className="h-full rounded-2xl border border-border bg-surface-elevated/40 p-5 transition-all duration-300 hover:border-primary/30 hover:bg-surface-elevated/60 hover:shadow-lg hover:shadow-primary/5 lg:p-6">
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/20">
                   <service.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="text-lg font-semibold text-text-primary mb-2">

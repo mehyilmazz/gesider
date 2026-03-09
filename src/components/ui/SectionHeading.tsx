@@ -18,13 +18,13 @@ export default function SectionHeading({
   return (
     <div
       className={cn(
-        "mb-8 lg:mb-10",
+        "mb-5 lg:mb-6",
         align === "center" && "text-center",
         className
       )}
     >
       {badge && (
-        <span className="mb-3 inline-block rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
+        <span className="mb-2 inline-block rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
           {badge}
         </span>
       )}
@@ -39,7 +39,7 @@ export default function SectionHeading({
       {description && (
         <p
           className={cn(
-            "mt-3 text-lg text-text-secondary",
+            "mt-2 text-lg text-text-secondary",
             align === "center" && "max-w-2xl mx-auto"
           )}
         >

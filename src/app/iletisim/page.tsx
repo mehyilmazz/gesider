@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
-import PageHeader from "@/components/shared/PageHeader";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { siteConfig } from "@/data/site";
@@ -10,12 +9,7 @@ import { siteConfig } from "@/data/site";
 export default function IletisimPage() {
   return (
     <>
-      <PageHeader
-        title="İletişim"
-        description="Sorularınız, önerileriniz veya iş birliği talepleriniz için bize ulaşın."
-      />
-
-      <section className="section-padding">
+      <section className="section-padding pt-24 lg:pt-28">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
             <div className="lg:col-span-3">

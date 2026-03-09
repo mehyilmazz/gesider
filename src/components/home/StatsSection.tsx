@@ -7,7 +7,7 @@ export default function StatsSection() {
   return (
     <section className="section-padding relative">
       <div className="container-custom">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -17,7 +17,7 @@ export default function StatsSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative group"
             >
-              <div className="p-6 lg:p-8 rounded-2xl border border-border bg-surface-elevated/40 text-center transition-all duration-300 group-hover:border-primary/30 group-hover:bg-surface-elevated/60">
+              <div className="rounded-2xl border border-border bg-surface-elevated/40 p-4 text-center transition-all duration-300 group-hover:border-primary/30 group-hover:bg-surface-elevated/60 lg:p-5">
                 <div className="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text">
                   {stat.value}
                   {stat.suffix && (

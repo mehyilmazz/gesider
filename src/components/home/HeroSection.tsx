@@ -6,20 +6,20 @@ import { ArrowRight, Shield, ChevronRight } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative flex min-h-[72vh] items-center overflow-hidden lg:min-h-[78vh]">
       <div className="absolute inset-0 bg-gradient-radial" />
       <div className="absolute inset-0 dot-pattern opacity-20" />
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-[128px]" />
       <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-accent/10 rounded-full blur-[128px]" />
 
-      <div className="container-custom relative z-10 pt-20">
+      <div className="container-custom relative z-10 pt-14 lg:pt-16">
         <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2">
               <Shield className="w-4 h-4 text-primary" />
               <span className="text-sm text-primary font-medium">
                 1996&apos;dan Bu Yana Sektörün Öncüsü
@@ -32,7 +32,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
+            className="text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:text-6xl"
           >
             <span className="text-text-primary">Güvenlik Endüstrisinde</span>
             <br />
@@ -43,7 +43,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-lg sm:text-xl text-text-secondary max-w-2xl leading-relaxed"
+            className="mt-4 max-w-2xl text-lg leading-relaxed text-text-secondary sm:text-xl"
           >
             GESİDER, Türkiye&apos;nin önde gelen güvenlik endüstrisi
             sanayicileri ve işadamlarını bir araya getirerek sektörün
@@ -54,7 +54,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-10 flex flex-wrap gap-4"
+            className="mt-7 flex flex-wrap gap-3"
           >
             <Link
               href="/hakkimizda"
@@ -63,17 +63,11 @@ export default function HeroSection() {
               Bizi Tanıyın
               <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link
-              href="/uyelik"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg border border-border text-text-secondary font-semibold hover:text-text-primary hover:border-border-hover hover:bg-surface-elevated/30 transition-all"
-            >
-              Üye Olun
-            </Link>
           </motion.div>
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2">
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}

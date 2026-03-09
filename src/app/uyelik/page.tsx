@@ -4,10 +4,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Search, Building2 } from "lucide-react";
-import PageHeader from "@/components/shared/PageHeader";
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
-import SectionHeading from "@/components/ui/SectionHeading";
 import { members } from "@/data/members";
 
 export default function UyelikPage() {
@@ -21,19 +19,8 @@ export default function UyelikPage() {
 
   return (
     <>
-      <PageHeader
-        title={"\u00dcyelerimiz"}
-        description={"GESIDER ailesine kat\u0131l\u0131n, sekt\u00f6r\u00fcn g\u00fcc\u00fcne ortak olun."}
-      />
-
-      <section className="section-padding">
+      <section className="section-padding pt-24 lg:pt-28">
         <div className="container-custom">
-          <SectionHeading
-            badge={"\u00dcyelerimiz"}
-            title={"GESIDER \u00dcye Firmalar\u0131"}
-            description={"G\u00fcvenlik sekt\u00f6r\u00fcn\u00fcn \u00f6nde gelen firmalar\u0131n\u0131 b\u00fcnyemizde bar\u0131nd\u0131r\u0131yoruz."}
-          />
-
           <div className="mx-auto mb-8 max-w-3xl rounded-2xl border border-border bg-surface-elevated/40 px-5 py-4 text-center">
             <p className="text-sm leading-relaxed text-text-secondary sm:text-base">
               {"\u00dcyelik ba\u015fvurular\u0131 ve kurumsal bilgi talepleri i\u00e7in "}

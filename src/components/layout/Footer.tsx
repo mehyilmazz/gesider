@@ -34,10 +34,10 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { label: "Hakk\u0131m\u0131zda", href: "/hakkimizda" },
-                { label: "Y\u00f6netim Kurulu", href: "/hakkimizda#yonetim" },
+                { label: "Y\u00f6netim Kurulu", href: "/hakkimizda" },
                 { label: "Haberler", href: "/haberler" },
               ].map((link) => (
-                <li key={link.href}>
+                <li key={`${link.label}-${link.href}`}>
                   <Link
                     href={link.href}
                     className="text-sm text-text-muted hover:text-primary transition-colors"
@@ -55,11 +55,11 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               {[
-                { label: "\u00dcyelik", href: "/uyelik" },
+                { label: "\u00dcyelerimiz", href: "/uyelik" },
                 { label: "Hakk\u0131m\u0131zda", href: "/hakkimizda" },
                 { label: "\u0130leti\u015fim", href: "/iletisim" },
               ].map((link) => (
-                <li key={link.href}>
+                <li key={`${link.label}-${link.href}`}>
                   <Link
                     href={link.href}
                     className="text-sm text-text-muted hover:text-primary transition-colors"

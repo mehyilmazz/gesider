@@ -27,7 +27,7 @@ export default function LatestNews() {
           description="Sektördeki gelişmeleri ve derneğimizin faaliyetlerini yakından takip edin."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {latestNews.map((item, index) => (
             <motion.div
               key={item.id}
@@ -37,7 +37,7 @@ export default function LatestNews() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Link href={`/haberler/${item.slug}`} className="group block h-full">
-                <div className="h-full p-6 rounded-2xl border border-border bg-surface-elevated/40 transition-all duration-300 group-hover:border-primary/30 group-hover:bg-surface-elevated/60 group-hover:shadow-lg group-hover:shadow-primary/5">
+                <div className="h-full rounded-2xl border border-border bg-surface-elevated/40 p-5 transition-all duration-300 group-hover:border-primary/30 group-hover:bg-surface-elevated/60 group-hover:shadow-lg group-hover:shadow-primary/5">
                   <div className="flex items-center gap-3 mb-4">
                     <Badge variant="primary">{categoryLabels[item.category]}</Badge>
                     <span className="flex items-center gap-1.5 text-xs text-text-muted">
@@ -61,7 +61,7 @@ export default function LatestNews() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-8 text-center">
           <Link
             href="/haberler"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border text-text-secondary font-medium hover:text-text-primary hover:border-border-hover hover:bg-surface-elevated/30 transition-all"

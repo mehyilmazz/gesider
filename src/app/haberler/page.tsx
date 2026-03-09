@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Calendar, ArrowRight, Filter } from "lucide-react";
-import PageHeader from "@/components/shared/PageHeader";
 import Badge from "@/components/ui/Badge";
 import { news } from "@/data/news";
 import { formatDate } from "@/lib/utils";
@@ -34,12 +33,7 @@ export default function HaberlerPage() {
 
   return (
     <>
-      <PageHeader
-        title="Haberler & Etkinlikler"
-        description="Sektördeki gelişmeleri, duyurularımızı ve etkinliklerimizi takip edin."
-      />
-
-      <section className="section-padding">
+      <section className="section-padding pt-24 lg:pt-28">
         <div className="container-custom">
           <div className="flex items-center gap-2 flex-wrap mb-10">
             <Filter className="w-4 h-4 text-text-muted mr-1" />
