@@ -9,7 +9,7 @@ interface PageHeaderProps {
 
 export default function PageHeader({ title, description }: PageHeaderProps) {
   return (
-    <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
+    <section className="relative overflow-hidden pb-10 pt-28 lg:pb-12 lg:pt-36">
       <div className="absolute inset-0 dot-pattern opacity-30" />
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
       <div className="container-custom relative">
@@ -22,7 +22,7 @@ export default function PageHeader({ title, description }: PageHeaderProps) {
             {title}
           </h1>
           {description && (
-            <p className="mt-4 text-lg sm:text-xl text-text-secondary max-w-2xl">
+            <p className="mt-3 max-w-2xl text-lg text-text-secondary sm:text-xl">
               {description}
             </p>
           )}

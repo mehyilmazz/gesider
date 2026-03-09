@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Search, Building2, Mail, Send } from "lucide-react";
+import Link from "next/link";
+import { Search, Building2 } from "lucide-react";
 import PageHeader from "@/components/shared/PageHeader";
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
@@ -32,6 +33,19 @@ export default function UyelikPage() {
             title={"GESIDER \u00dcye Firmalar\u0131"}
             description={"G\u00fcvenlik sekt\u00f6r\u00fcn\u00fcn \u00f6nde gelen firmalar\u0131n\u0131 b\u00fcnyemizde bar\u0131nd\u0131r\u0131yoruz."}
           />
+
+          <div className="mx-auto mb-8 max-w-3xl rounded-2xl border border-border bg-surface-elevated/40 px-5 py-4 text-center">
+            <p className="text-sm leading-relaxed text-text-secondary sm:text-base">
+              {"\u00dcyelik ba\u015fvurular\u0131 ve kurumsal bilgi talepleri i\u00e7in "}
+              <Link
+                href="/iletisim"
+                className="font-medium text-primary transition-colors hover:text-primary-light"
+              >
+                {"\u0130leti\u015fim"}
+              </Link>
+              {" sayfas\u0131 \u00fczerinden bizimle ileti\u015fime ge\u00e7ebilirsiniz."}
+            </p>
+          </div>
 
           <div className="max-w-md mx-auto mb-8">
             <div className="relative">
@@ -70,49 +84,6 @@ export default function UyelikPage() {
                 </Card>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-padding border-t border-border">
-        <div className="container-custom">
-          <SectionHeading
-            badge={"Ba\u015fvuru"}
-            title={"\u00dcyelik Ba\u015fvurusu"}
-            description={"Online \u00fcyelik formu kald\u0131r\u0131lm\u0131\u015ft\u0131r. Ba\u015fvurular e-posta \u00fczerinden al\u0131nmaktad\u0131r."}
-          />
-
-          <div className="max-w-2xl mx-auto">
-            <Card className="p-8 space-y-6">
-              <div className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                <p className="text-text-secondary leading-relaxed">
-                  {"\u00dcyelik ba\u015fvurusu yapmak i\u00e7in firma bilgilerinizi ve ileti\u015fim detaylar\u0131n\u0131z\u0131 "}
-                  <a className="text-primary font-medium ml-1" href="mailto:admin@gesider.org">
-                    admin@gesider.org
-                  </a>
-                  {" adresine g\u00f6nderiniz."}
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-border bg-surface-elevated/40 p-5">
-                <h3 className="text-sm font-semibold text-text-primary mb-3">{"E-posta i\u00e7eri\u011fi \u00f6nerisi"}</h3>
-                <ul className="space-y-2 text-sm text-text-secondary">
-                  <li>{"- Firma ad\u0131 / yetkili ki\u015fi"}</li>
-                  <li>{"- Faaliyet alan\u0131"}</li>
-                  <li>{"- Telefon ve e-posta bilgisi"}</li>
-                  <li>{"- K\u0131sa ba\u015fvuru notu"}</li>
-                </ul>
-              </div>
-
-              <a
-                href="mailto:admin@gesider.org?subject=GESIDER%20Uyelik%20Basvurusu"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-primary px-5 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
-              >
-                <Send className="w-4 h-4" />
-                {"admin@gesider.org adresine e-posta g\u00f6nder"}
-              </a>
-            </Card>
           </div>
         </div>
       </section>
