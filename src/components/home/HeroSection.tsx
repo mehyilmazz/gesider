@@ -1,12 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Shield, ChevronRight } from "lucide-react";
+import { Shield, ChevronRight } from "lucide-react";
+import LogoMarquee from "./LogoMarquee";
 
 export default function HeroSection() {
   return (
-    <section className="relative flex min-h-[72vh] items-center overflow-hidden lg:min-h-[78vh]">
+    <section className="relative flex min-h-[65vh] items-center overflow-hidden lg:min-h-[70vh]">
       <div className="absolute inset-0 bg-gradient-radial" />
       <div className="absolute inset-0 dot-pattern opacity-20" />
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-[128px]" />
@@ -50,30 +50,14 @@ export default function HeroSection() {
             gelişimine öncülük etmektedir.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-7 flex flex-wrap gap-3"
-          >
-            <Link
-              href="/hakkimizda"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-gradient-primary text-white font-semibold hover:opacity-90 transition-opacity shadow-lg shadow-primary/20"
-            >
-              Bizi Tanıyın
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </motion.div>
         </div>
-      </div>
-
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2">
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 rounded-full border-2 border-text-muted/30 flex items-start justify-center p-1.5"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-7 w-full"
         >
-          <div className="w-1.5 h-2.5 rounded-full bg-text-muted/50" />
+          <LogoMarquee />
         </motion.div>
       </div>
     </section>

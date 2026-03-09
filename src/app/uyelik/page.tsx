@@ -21,19 +21,6 @@ export default function UyelikPage() {
     <>
       <section className="section-padding pt-24 lg:pt-28">
         <div className="container-custom">
-          <div className="mx-auto mb-8 max-w-3xl rounded-2xl border border-border bg-surface-elevated/40 px-5 py-4 text-center">
-            <p className="text-sm leading-relaxed text-text-secondary sm:text-base">
-              {"\u00dcyelik ba\u015fvurular\u0131 ve kurumsal bilgi talepleri i\u00e7in "}
-              <Link
-                href="/iletisim"
-                className="font-medium text-primary transition-colors hover:text-primary-light"
-              >
-                {"\u0130leti\u015fim"}
-              </Link>
-              {" sayfas\u0131 \u00fczerinden bizimle ileti\u015fime ge\u00e7ebilirsiniz."}
-            </p>
-          </div>
-
           <div className="max-w-md mx-auto mb-8">
             <div className="relative">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted" />
@@ -71,6 +58,19 @@ export default function UyelikPage() {
                 </Card>
               </motion.div>
             ))}
+          </div>
+
+          <div className="mx-auto mt-12 max-w-4xl rounded-xl border border-border bg-surface-elevated/20 px-6 py-4 text-center">
+            <p className="text-sm text-text-secondary sm:text-base flex flex-wrap items-center justify-center gap-1.5">
+              <span>Üyelik başvuruları ve kurumsal bilgi talepleri için</span>
+              <Link
+                href="/iletisim"
+                className="font-medium text-primary transition-colors hover:text-primary-light"
+              >
+                İletişim
+              </Link>
+              <span>sayfası üzerinden bizimle iletişime geçebilirsiniz.</span>
+            </p>
           </div>
         </div>
       </section>

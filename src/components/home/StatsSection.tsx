@@ -5,7 +5,7 @@ import { stats } from "@/data/site";
 
 export default function StatsSection() {
   return (
-    <section className="section-padding relative">
+    <section className="section-padding relative -mt-8 lg:-mt-12 z-20">
       <div className="container-custom">
         <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4">
           {stats.map((stat, index) => (

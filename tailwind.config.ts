@@ -45,12 +45,6 @@ const config: Config = {
         "gradient-dark": "linear-gradient(180deg, #0a0a0f, #12121a)",
         "gradient-radial": "radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0f 70%)",
       },
-      animation: {
-        "fade-in": "fadeIn 0.5s ease-out",
-        "slide-up": "slideUp 0.5s ease-out",
-        "glow": "glow 2s ease-in-out infinite alternate",
-        "float": "float 6s ease-in-out infinite",
-      },
       keyframes: {
         fadeIn: {
           "0%": { opacity: "0" },
@@ -68,6 +62,17 @@ const config: Config = {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
         },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+      },
+      animation: {
+        "fade-in": "fadeIn 0.5s ease-out",
+        "slide-up": "slideUp 0.5s ease-out",
+        glow: "glow 2s ease-in-out infinite alternate",
+        float: "float 6s ease-in-out infinite",
+        marquee: "marquee 15s linear infinite",
       },
     },
   },

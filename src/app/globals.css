@@ -147,6 +147,21 @@
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+
+  /* Logo marquee - Beyaz kart içinde orijinal logo (Webflow referansındaki gibi) */
+  .logo-marquee img {
+    object-fit: contain;
+    object-position: center;
+    /* mix-blend-mode "multiply" kartın beyaz arka planını koruyarak logonun mükemmel görünmesini sağlar */
+    mix-blend-mode: multiply;
+    filter: none;
+    opacity: 0.85;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .logo-marquee .logo-card:hover img {
+    opacity: 1;
+    transform: scale(1.05);
+  }
 }
 
 @layer utilities {
