@@ -9,6 +9,15 @@ import { siteConfig } from "@/data/site";
 
 type FormStatus = "idle" | "sending" | "success" | "error";
 
+const KONU_ETIKETLERI: Record<string, string> = {
+  soru: "Soru",
+  istek: "İstek",
+  sikayet: "Şikayet",
+  oneri: "Öneri",
+  uyelik: "Üyelik Bilgisi",
+  isbirligi: "İş Birliği",
+};
+
 export default function IletisimPage() {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -18,17 +27,27 @@ export default function IletisimPage() {
     const form = event.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
 
+    const konu = KONU_ETIKETLERI[String(data.subject)] ?? String(data.subject);
+
     setStatus("sending");
     setErrorMessage("");
     try {
-      const res = await fetch("/api/iletisim", {
+      // Web3Forms ucretsiz plan geregi gonderim dogrudan tarayicidan yapilir
+      // (form action ornegindeki gibi); anahtar public'tir.
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+          from_name: "GESİDER Web Sitesi",
+          ...data,
+          subject: `GESİDER İletişim Formu: ${konu}`,
+          konu,
+        }),
       });
       const json = await res.json().catch(() => ({}));
-      if (!res.ok) {
-        throw new Error(json.error ?? "Mesaj gönderilemedi.");
+      if (!res.ok || !json.success) {
+        throw new Error("Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.");
       }
       setStatus("success");
       form.reset();
@@ -51,10 +70,10 @@ export default function IletisimPage() {
                   Bize Yazın
                 </h2>
                 <form className="space-y-6" onSubmit={handleSubmit}>
-                  {/* Honeypot - botlara karsi gizli alan */}
+                  {/* Honeypot - botlara karsi gizli alan (Web3Forms botcheck) */}
                   <input
-                    type="text"
-                    name="website"
+                    type="checkbox"
+                    name="botcheck"
                     tabIndex={-1}
                     autoComplete="off"
                     className="hidden"
