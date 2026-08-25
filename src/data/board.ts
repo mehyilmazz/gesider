@@ -2,7 +2,7 @@ export interface BoardMember {
   name: string;
   title: string;
   company: string;
-  /** İnternetten bulunan profil fotoğrafı URL'si */
+  /** Yerel profil fotoğrafı (public/yonetim-kurulu altında) */
   image?: string;
 }
 
@@ -20,31 +20,31 @@ export const currentBoard: BoardPeriod = {
       name: "Alp SAUL",
       title: "Yönetim Kurulu Başkanı",
       company: "Pronet",
-      image: "https://scaleup.endeavor.org.tr/wp-content/uploads/2023/04/alp-saul-470x470.jpeg",
+      image: "/yonetim-kurulu/alp-saul.jpg",
     },
     {
       name: "Turgay ŞAHAN",
       title: "Başkan Vekili",
       company: "TAV",
-      image: "https://media.licdn.com/dms/image/v2/C4D03AQHOxwljqjfBSw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1629902602281?e=1774483200&v=beta&t=C2gsDaU6SCIhDRX70-6zLaugEgCdgQ2fTR6JgwIBxFw",
+      image: "/yonetim-kurulu/turgay-sahan.jpg",
     },
     {
       name: "Osman YILDIZ",
       title: "Genel Sekreter",
       company: "EDS Elektronik",
-      image: "https://media.licdn.com/dms/image/v2/D4D03AQF9ykC5qTGMIg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1727451583503?e=1774483200&v=beta&t=bCb2n3uLOiXF05JX0dqH1lDLRiWqfvyj8S9xfR9bgDM",
+      image: "/yonetim-kurulu/osman-yildiz.jpg",
     },
     {
       name: "Gürol TOPCU",
       title: "Sayman",
       company: "Topcu Teknoloji",
-      image: "https://media.licdn.com/dms/image/v2/D4D03AQGCol3YFRuxCA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1685216995963?e=1774483200&v=beta&t=FCOcN7RRVmLbMK7iZ8G5UhD8GIIW5l2jrQkScoAM5gk",
+      image: "/yonetim-kurulu/gurol-topcu.jpg",
     },
     {
       name: "İsmail UZELLİ",
       title: "Yönetim Kurulu Üyesi",
       company: "Securitas",
-      image: "https://media.licdn.com/dms/image/v2/C5103AQEzOeavSLZ7qw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1516288630826?e=1774483200&v=beta&t=RB4g6jJWYLjY6OChKHhbH03wLKKDW5iG9hOqeGonM_Q",
+      image: "/yonetim-kurulu/ismail-uzelli.jpg",
     },
   ],
 };

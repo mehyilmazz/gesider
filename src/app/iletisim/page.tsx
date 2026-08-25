@@ -1,12 +1,45 @@
 "use client";
 
+import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { siteConfig } from "@/data/site";
 
+type FormStatus = "idle" | "sending" | "success" | "error";
+
 export default function IletisimPage() {
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    setStatus("sending");
+    setErrorMessage("");
+    try {
+      const res = await fetch("/api/iletisim", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(json.error ?? "Mesaj gönderilemedi.");
+      }
+      setStatus("success");
+      form.reset();
+    } catch (err) {
+      setStatus("error");
+      setErrorMessage(
+        err instanceof Error ? err.message : "Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin."
+      );
+    }
+  }
+
   return (
     <>
       <section className="section-padding pt-24 lg:pt-28">
@@ -17,7 +50,16 @@ export default function IletisimPage() {
                 <h2 className="text-2xl font-bold text-text-primary mb-6">
                   Bize Yazın
                 </h2>
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={handleSubmit}>
+                  {/* Honeypot - botlara karsi gizli alan */}
+                  <input
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    className="hidden"
+                    aria-hidden="true"
+                  />
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-text-secondary mb-2">
@@ -25,6 +67,9 @@ export default function IletisimPage() {
                       </label>
                       <input
                         type="text"
+                        name="name"
+                        required
+                        maxLength={200}
                         className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
                         placeholder="Ad Soyad"
                       />
@@ -35,6 +80,8 @@ export default function IletisimPage() {
                       </label>
                       <input
                         type="email"
+                        name="email"
+                        required
                         className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
                         placeholder="ornek@email.com"
                       />
@@ -45,7 +92,11 @@ export default function IletisimPage() {
                     <label className="block text-sm font-medium text-text-secondary mb-2">
                       Konu *
                     </label>
-                    <select className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all">
+                    <select
+                      name="subject"
+                      required
+                      className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
+                    >
                       <option value="">Konu Seçiniz</option>
                       <option value="soru">Soru</option>
                       <option value="istek">İstek</option>
@@ -62,14 +113,35 @@ export default function IletisimPage() {
                     </label>
                     <textarea
                       rows={6}
+                      name="message"
+                      required
+                      maxLength={5000}
                       className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all resize-none"
                       placeholder="Mesajınızı buraya yazın..."
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full sm:w-auto">
+                  {status === "success" && (
+                    <div className="flex items-center gap-2 rounded-xl border border-green-500/30 bg-green-500/10 px-4 py-3 text-sm text-green-600">
+                      <CheckCircle2 className="w-5 h-5 shrink-0" />
+                      Mesajınız gönderildi. En kısa sürede size dönüş yapacağız.
+                    </div>
+                  )}
+                  {status === "error" && (
+                    <div className="flex items-center gap-2 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-600">
+                      <AlertCircle className="w-5 h-5 shrink-0" />
+                      {errorMessage}
+                    </div>
+                  )}
+
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full sm:w-auto"
+                    disabled={status === "sending"}
+                  >
                     <Send className="w-5 h-5 mr-2" />
-                    Mesajı Gönder
+                    {status === "sending" ? "Gönderiliyor..." : "Mesajı Gönder"}
                   </Button>
                 </form>
               </Card>
