@@ -11,10 +11,8 @@ export const siteConfig = {
   fax: "0212 210 53 08",
   email: "info@gesider.org",
   website: "https://www.gesider.org",
-  social: {
-    linkedin: "#",
-    twitter: "#",
-  },
+  // Dernegin dogrulanmis bir sosyal medya hesabi bulunamadi (2026-08).
+  // Hesap acilirsa buraya eklenip Footer'da linklenebilir.
 };
 
 export const stats = [
