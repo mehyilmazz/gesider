@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "logos:clean": "node scripts/remove-logo-backgrounds.mjs"
+    "logos:normalize": "node scripts/normalize-logos.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

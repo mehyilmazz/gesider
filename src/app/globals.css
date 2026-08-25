@@ -162,6 +162,26 @@
     opacity: 1;
     transform: scale(1.05);
   }
+
+  /* Uzerine gelince marquee akisini durdur */
+  .marquee-pausable:hover .animate-marquee,
+  .marquee-pausable:hover .animate-marquee-slow,
+  .marquee-pausable:hover .animate-marquee-rev {
+    animation-play-state: paused;
+  }
+
+  /* Monokrom logo seridi: beyaz zeminli logolar ters cevrilip screen blend ile
+     koyu zemine "yaziliyor" - kart olmadan temiz isik-gri logolar */
+  .logo-mono img {
+    filter: invert(1) grayscale(1) brightness(1.7);
+    mix-blend-mode: screen;
+    opacity: 0.65;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .logo-mono:hover img {
+    opacity: 1;
+    transform: scale(1.06);
+  }
 }
 
 @layer utilities {
