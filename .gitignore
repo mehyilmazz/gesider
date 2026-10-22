@@ -12,3 +12,4 @@ gesider-home-3001.png
 # Local deploy runbooks (repo public - altyapi bilgisi disinda tutuluyor)
 DEPLOY-1-SUNUCU-HAZIRLIK.md
 DEPLOY-2-PROJE-YUKLEME.md
+*.tsbuildinfo

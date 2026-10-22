@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="tr" className="dark">
+    <html lang="tr" className="dark" data-scroll-behavior="smooth">
       <body className="min-h-screen bg-background text-text-primary antialiased">
         <div className="grain" />
         <Navbar />
